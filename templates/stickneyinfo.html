@@ -1,0 +1,44 @@
+$def with (info)
+<html>
+<head><title>Stickney Observatory Item Info</title></head>
+<body background="http://tallys.ca/wp-content/uploads/2016/04/Background2.png">
+$for id in info:
+	<p><strong style="color:blue">Please click on the stars rating to be redirected to reviews</strong></p>
+	$if id.is_open==1:
+		<strong style="color:#4e9a06">We are: Open</strong>
+	$else:
+		<strong style="color:#ff0000">We are: Closed<strong>
+	$if id.name is None:
+		<strong style="color:#ff0000">There is no name info available</strong>
+	$if id.neighborhood is None:
+		<strong style="color:#ff0000">There is no neighborhood info available</strong> 
+	$if id.city is None:
+		<strong style="color:#ff0000">There is no city info available</strong> 
+	$if id.state is None:
+		<strong style="color:#ff0000">There is no state info available</strong>
+	$if id.stars==0:
+		<strong style="color:#ff0000">There is no star info available</strong> 
+	$if id.review_count==0:
+		<strong style="color:#ff0000">There is no review info available</strong> 
+	<table>
+		<tr>
+			<th>name</th>
+			<th>neighborhood</th>
+			<th>city</th>
+			<th>state</th>
+			<th>stars</th>
+			<th>review_count</th>
+			<th>is_open</th>
+		</tr>
+		<tr>
+			<td>$id.name</td>
+			<td>$id.neighborhood</td>
+			<td>$id.city</td>
+			<td>$id.state</td>
+			<td><a href="/review/$id.id">$id.stars</a></td>
+			<td>$id.review_count</td>
+			<td>$id.is_open</td>
+		</tr>
+	</table>
+</body>
+</html>
