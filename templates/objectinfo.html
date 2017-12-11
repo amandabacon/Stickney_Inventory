@@ -1,0 +1,43 @@
+$def with (info)
+<html>
+<head><title>Stickney Observatory Item Info</title></head>
+<body background="http://wallportal.com/uploads/posts/white-wallpaper-images/white_wallpaper_images_012.jpg">
+$for id in info:
+	<p><strong style="color:#000000">Here is the information on item (id, name): $id.id, $id.item_name</strong></p>
+	$if id.id == 0:
+		<strong style="color:#ff0000">There is no id information available for this item.</strong>
+	$if id.item_name is None:
+		<strong style="color:#ff0000">There is no name available for this item</strong>
+	$if id.model is None:
+		<strong style="color:#ff0000">There is no model number available for this item</strong>
+	$if id.serial_num is None:
+		<strong style="color:#ff0000">There is no serial number available for this item</strong>
+	$if id.date is None:
+		<strong style="color:#ff0000">There is no logged date for this item</strong>
+	$if id.logger_name is None:
+		<strong style="color:#ff0000">Logger did not provide a name</strong>
+	$if id.description is None:
+		<strong style="color:#ff0000">There is no other information available for this item</strong>
+
+	<table border="1" bordercolor="#000000" cellpadding="3">
+		<tr>
+			<th>id:</th>
+			<th>item name:</th>
+			<th>model:</th>
+			<th>serial number:</th>
+			<th>date:</th>
+			<th>logger name:</th>
+			<th>description:</th>
+		</tr>
+		<tr>
+			<th>$id.id</th>
+			<th>$id.item_name</th>
+			<th>$id.model</th>
+			<th>$id.serial_num</th>
+			<th>$id.date</th>
+			<th>$id.logger_name</th>
+			<th>$id.description</th>
+		</tr>
+	</table>
+</body>
+</html>
