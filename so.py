@@ -53,7 +53,7 @@ class login:
 			return '%s' % render.login()
 
 	def POST(self):
-                db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
+		db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
 		user_name, password = web.input().user_name, web.input().password
 		ident = db.select('user_table', where = "user_name=$user_name='{0}'".format(ident))
 		try:
