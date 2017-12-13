@@ -24,7 +24,5 @@ Would like to:
 
 -liken empty strings to null values to return an error to user
 
--make case insensitive, but could just call all items from table
-
 -prevent repetition in database
 

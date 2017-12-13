@@ -97,7 +97,7 @@ class objects:
 	def POST(self):
 		db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
 		item_name = web.input().item_name
-		objects = db.select('sobset', where = "item_name='{0}'".format(item_name))
+		objects = db.select('sobset', where = "lower(item_name)='{0}'".format(item_name))
 		return render.sobset(objects)
 		item = web.input()
 		item1 = item.item_name
