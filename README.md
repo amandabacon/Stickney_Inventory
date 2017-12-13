@@ -27,7 +27,10 @@ You're good to go.
 Would like to:
 
 -be able to edit on HTML page, and these edits appear in db
+
 -login using Bton credentials
--liken empty strings to null values to return an error to user_name
+
+-liken empty strings to null values to return an error to user
+
 -make case insensitive, but could just call all items from table
 
