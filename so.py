@@ -156,4 +156,5 @@ class form:
 if __name__ == "__main__":
 	app.run()
 
+# sudo -u postgres createdb -O amandabacon stickney_db
 # stickney_db=# \copy sobset TO '~/final/sobset.csv' DELIMITER ',' CSV HEADER;

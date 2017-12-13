@@ -3,10 +3,44 @@ $def with (all_items)
 <head><title>All Items</title></head>
 <body background="http://wallportal.com/uploads/posts/white-wallpaper-images/white_wallpaper_images_012.jpg">
 <p><strong>Here is a list of all items in the table:</strong></p>
-<ul>
 $for all in all_items:
-	<li><strong style="color:#000000">Name: $all.item_name</a></li>
-</ul>
+	<li style="line-height: 2.5"><strong style="color:#000000">Name: $all.item_name</a></li>
+	$if all.id == 0:
+		<strong style="color:#ff0000">There is no id information available for this item.</strong>
+	$if all.item_name is None:
+		<strong style="color:#ff0000">There is no name available for this item</strong>
+	$if all.model is None:
+		<strong style="color:#ff0000">There is no model number available for this item</strong>
+	$if all.serial_num is None:
+		<strong style="color:#ff0000">There is no serial number available for this item</strong>
+	$if all.date is None:
+		<strong style="color:#ff0000">There is no logged date for this item</strong>
+	$if all.logger_name is None:
+		<strong style="color:#ff0000">Logger did not provide a name</strong>
+	$if all.description is None:
+		<strong style="color:#ff0000">There is no other information available for this item</strong>
+
+	<table border="1" bordercolor="#000000" cellpadding="3">
+		<tr>
+			<th>id:</th>
+			<th>item name:</th>
+			<th>model:</th>
+			<th>serial number:</th>
+			<th>date:</th>
+			<th>logger name:</th>
+			<th>description:</th>
+		</tr>
+		<tr>
+			<th>$all.id</th>
+			<th>$all.item_name</th>
+			<th>$all.model</th>
+			<th>$all.serial_num</th>
+			<th>$all.date</th>
+			<th>$all.logger_name</th>
+			<th>$all.description</th>
+		</tr>
+	</table>
+<br>
 <form method="post" action="/static/so_search.html">
 	<b style="color:#000000">If you want to go back to the search form, click here</b>:
 	<input type="submit" value="Search">
