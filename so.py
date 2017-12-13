@@ -6,6 +6,8 @@
 """
 import web
 import hashlib
+import csv
+import psycopg2
 
 render = web.template.render('templates/')
 
@@ -108,6 +110,20 @@ class all_items:
 		all_items = db.select('sobset')
 		return render.all(all_items)
 
+def sobset_csv(filename="sobset.csv"):
+		with open('sobset_csv.csv', 'w') as file:
+			try:
+				connection = psycopg2.connect("dbname = 'stickney_db' user = 'amandabacon'")
+				cursor = connection.cursor()
+				cursor.execute("""SELECT * FROM sobset""")
+				rows = cursor.fetchall()
+				for row in rows:
+					writer = csv.writer(file, delimiter = ',')
+					writer.writerow(row)
+			
+			except Exception, e:
+				print("Unable to connect to database: {0}".format(e.message))
+
 class form:
 	def POST(self):
 		db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
@@ -155,6 +171,7 @@ class form:
 
 if __name__ == "__main__":
 	app.run()
+	sobset_csv()
 
 # sudo -u postgres createdb -O amandabacon stickney_db
 # stickney_db=# \copy sobset TO '~/final/sobset.csv' DELIMITER ',' CSV HEADER;
