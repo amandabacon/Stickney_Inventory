@@ -16,7 +16,9 @@ urls = (
 	'/objectinfo/(.*)', 'info',
 	'/object_by_name', 'objects',
 	'/logout', 'logout',
-	'/formsub', 'form'
+	'/formsub', 'form',
+	'/home', 'home',
+	'/all_items', 'all_items'
 )
 
 app = web.application(urls, globals(), True)
@@ -99,6 +101,12 @@ class objects:
 		item1 = item.item_name
 		print(item1)
 		return item1
+
+class all_items:
+	def GET(self,item_name):
+		db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
+		all_items = db.select('sobset', where = "item_name='{0}'".format(item_name))
+		return render.all(all_items)
 
 class form:
 	def POST(self):
