@@ -103,9 +103,9 @@ class objects:
 		return item1
 
 class all_items:
-	def GET(self,item_name):
+	def POST(self):
 		db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
-		all_items = db.select('sobset', where = "item_name='{0}'".format(item_name))
+		all_items = db.select('sobset')
 		return render.all(all_items)
 
 class form:
@@ -155,3 +155,5 @@ class form:
 
 if __name__ == "__main__":
 	app.run()
+
+# stickney_db=# \copy sobset TO '~/final/sobset.csv' DELIMITER ',' CSV HEADER;

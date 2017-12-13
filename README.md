@@ -14,14 +14,6 @@ In order to use this application, you must first download/install postgresql. In
 
 This model was run and tested on the Linux Ubuntu operating system.
 
-How to install on Linux:
-
-sudo -u postgres createdb -O _yourusername_ stickney_db
-
-./import.sh
-
-You're good to go.
-
 # Next Steps:
 
 Would like to:
@@ -33,4 +25,6 @@ Would like to:
 -liken empty strings to null values to return an error to user
 
 -make case insensitive, but could just call all items from table
+
+-prevent repetition in database
 
