@@ -2,7 +2,7 @@ $def with (all_items)
 <html>
 <head><title>All Items</title></head>
 <body background="http://wallportal.com/uploads/posts/white-wallpaper-images/white_wallpaper_images_012.jpg">
-<p><strong>Here is a list of all items in the table:</strong></p>
+<p><strong>Here is a list of all items in the table (old-new):</strong></p>
 $for all in all_items:
 	<li style="line-height: 2.5"><strong style="color:#000000">Name: $all.item_name</a></li>
 	$if all.id == 0:
@@ -41,7 +41,10 @@ $for all in all_items:
 		</tr>
 	</table>
 <br>
+<!-- \copy sobset TO '~/final/sobset.csv' DELIMITER ',' CSV HEADER;-->
 <a href="~/final/sobset_csv.csv" download="sobset_csv.csv">Download CSV</a>
+<br>
+<br>
 <form method="post" action="/static/so_search.html">
 	<b style="color:#000000">If you want to go back to the search form, click here</b>:
 	<input type="submit" value="Search">
