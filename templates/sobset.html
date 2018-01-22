@@ -2,10 +2,10 @@ $def with (objects)
 <html>
 <head><title>Logged Items</title></head>
 <body background="http://wallportal.com/uploads/posts/white-wallpaper-images/white_wallpaper_images_012.jpg">
-<p><strong>Here is a list of items with this name. Please click on the item for more information:</strong></p>
+<p><strong>Here is a list of items with this name. Click on the item for more information:</strong></p>
 <ul>
 $for sobset in objects:
-	<li><strong style="color:#000000">Name:</strong><a href="/objectinfo/$sobset.id" style="color:#2e3436"> $sobset.item_name</a></li>
+	<li><strong style="color:#000000">Name:</strong><a href="/objectinfo/$sobset.id" style="color:#000000"> $sobset.item_name</a></li>
 </ul>
 </body>
 </html>

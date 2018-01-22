@@ -2,9 +2,13 @@ $def with (all_items)
 <html>
 <head><title>All Items</title></head>
 <body background="http://wallportal.com/uploads/posts/white-wallpaper-images/white_wallpaper_images_012.jpg">
-<p><strong>Here is a list of all items in the table (old-new):</strong></p>
+<form method="post" action="/static/so_search.html">
+	<b style="color:#000000">If you would like to go back to the search form, click here</b>:
+	<input type="submit" value="Search">
+</form>
+<p><strong>Here is a list of all items in the table <em style="color:#eb0505">(old-new)</em>:</strong></p>
 $for all in all_items:
-	<li style="line-height: 2.5"><strong style="color:#000000">Name: $all.item_name</a></li>
+	<li style="line-height: 2.5"><strong style="color:#000000"><u style="color:#000000">Name:</u> <em style="color:#eb0505">$all.item_name</em></a></li>
 	$if all.id == 0:
 		<strong style="color:#ff0000">There is no id information available for this item.</strong>
 	$if all.item_name is None:
@@ -42,11 +46,11 @@ $for all in all_items:
 	</table>
 <br>
 <!-- \copy sobset TO '~/final/sobset.csv' DELIMITER ',' CSV HEADER;-->
-<a href="~/final/sobset_csv.csv" download="sobset_csv.csv">Download CSV</a>
+<a style="color:#eb0505" href="/home/amandabacon/final/sobset_csv.csv" download>Download CSV</a>
 <br>
 <br>
 <form method="post" action="/static/so_search.html">
-	<b style="color:#000000">If you want to go back to the search form, click here</b>:
+	<b style="color:#000000">If you would like to go back to the search form, click here</b>:
 	<input type="submit" value="Search">
 </form>
 </body>

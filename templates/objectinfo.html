@@ -3,7 +3,7 @@ $def with (info)
 <head><title>Item Info</title></head>
 <body background="http://wallportal.com/uploads/posts/white-wallpaper-images/white_wallpaper_images_012.jpg">
 $for id in info:
-	<p><strong style="color:#000000">Here is the information on item (id, name): $id.id, $id.item_name</strong></p>
+	<p><strong style="color:#000000">Here is the information on item (id, name): <em style="color:#eb0505">$id.id, $id.item_name</em></strong></p>
 	$if id.id == 0:
 		<strong style="color:#ff0000">There is no id information available for this item.</strong>
 	$if id.item_name is None:
@@ -41,11 +41,11 @@ $for id in info:
 	</table>
 <br>
 <form method="post" action="/static/so_search.html">
-	<b style="color:#000000">If you want to go back to the search form, click here</b>:
+	<b style="color:#000000">If you would like to go back to the search form, click here</b>:
 	<input type="submit" value="Search">
 </form>
 <form method="post" action="/static/home.html">
-	<b style="color:#000000">If you want to go back to the home page, click here</b>:
+	<b style="color:#000000">If you would like to go back to the home page, click here</b>:
 	<input type="submit" value="Home">
 </form>
 </body>

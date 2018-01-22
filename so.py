@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 	Stickney Observatory DB-final project for DBMS
+	Used to take inventory of items in Stickney Observatory
 	Author: Amanda Bacon (amandabacon@bennington.edu)
 	Date: 2017/11/27
 """
@@ -14,13 +15,13 @@ render = web.template.render('templates/')
 web.config.debug = False
 
 urls = (
-	'/login', 'login',
-	'/objectinfo/(.*)', 'info',
-	'/object_by_name', 'objects',
-	'/logout', 'logout',
-	'/formsub', 'form',
-	'/home', 'home',
-	'/all_items', 'all_items'
+	'/login', 'login', # login page
+	'/objectinfo/(.*)', 'info', # click name--info
+	'/object_by_name', 'objects', # search by name
+	'/logout', 'logout', # logout page
+	'/formsub', 'form', # form page
+	'/home', 'home', # choose form or search page
+	'/all_items', 'all_items' # display all db inputs
 )
 
 app = web.application(urls, globals(), True)
@@ -44,7 +45,7 @@ def create_render(privilege):
 		else:
 			render = web.template.render('templates/communs')
 	else:
-		render = web.template.render('templates/')
+		render = web.template.render('templates/communs')
 	return render
 
 class login:
@@ -84,6 +85,8 @@ class logout:
 		render = create_render(session.get('privilege'))
 		return render.logout()
 
+# /objectinfo/(.*) -- click name for info
+
 class info:
 	def GET(self,id):
 		db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
@@ -92,6 +95,8 @@ class info:
 		if not id:
 			id = 'no id'
 		return None
+
+# /object_by_name -- search name
 
 class objects:
 	def POST(self):
@@ -104,11 +109,15 @@ class objects:
 		print(item1)
 		return item1
 
+# /all_items -- lists all db items
+
 class all_items:
 	def POST(self):
 		db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
 		all_items = db.select('sobset')
 		return render.all(all_items)
+
+# download csv of db to computer
 
 def sobset_csv(filename="sobset.csv"):
 		with open('sobset_csv.csv', 'w') as file:
@@ -123,6 +132,8 @@ def sobset_csv(filename="sobset.csv"):
 			
 			except Exception, e:
 				print("Unable to connect to database: {0}".format(e.message))
+
+# /formsub -- form document
 
 class form:
 	def POST(self):
