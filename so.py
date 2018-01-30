@@ -175,6 +175,14 @@ class form:
 			fifth5 = fifth.description
 			print(fifth5)
 			return fifth5
+			
+			if item_name == "":
+				print("Cannot be NULL")
+			if model == "":
+				print("Cannot be NULL")
+
+			if serial_num == "":
+				print("Cannot be NULL")
 
 			form.commit()
 
