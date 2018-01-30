@@ -24,6 +24,7 @@ $for id in info:
 	$if id.description is None:
 		<strong style="color:#ff0000">There is no other information available for this item.</strong>
 
+<div id = "edit" contenteditable = "true" style="display:inline-block">
 	<table border="1" bordercolor="#000000" cellpadding="3">
 		<tr>
 			<th>id:</th>
@@ -44,6 +45,9 @@ $for id in info:
 			<th>$id.description</th>
 		</tr>
 	</table>
+</div>
+
+<br>
 
 <br>
 
@@ -56,6 +60,16 @@ $for id in info:
 <form method="post" action="/static/home.html">
 	<b style="color:#000000">If you would like to go back to the home page, click here:</b>
 	<input type="submit" value="Home">
+
+<br>
+
+<br>
+
+<div id="update"><strong>You can edit the text in the table, then click save when finished.</strong></div>
+
+<br>
+
+<input type="button" value="Save" onclick="saveEdits()"/>
 </form>
 </body>
 </html>

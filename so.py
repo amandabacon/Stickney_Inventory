@@ -118,9 +118,6 @@ class all_items:
 		all_items = db.select('sobset')
 		return render.all(all_items)
 
-# do the coun here
-#		all_items = db.select('sobset') count(*)
-
 # download csv of db to computer
 
 def sobset_csv(filename="sobset.csv"):
