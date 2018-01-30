@@ -2,17 +2,30 @@
 <head>
 	<title>Stickney Observatory Home</title>
 </head>
-<body background="http://wallportal.com/uploads/posts/white-wallpaper-images/white_wallpaper_images_012.jpg">
+<body background="http://freedesignfile.com/upload/2015/10/Round-lines-with-dot-psd-background.jpg">
 <h3>
-	<center style="color:#000000">Welcome to the Stickney Observatory Homepage!</center>
+	<center style="color:#000000">Welcome to the Stickney Observatory Inventory Homepage!</center>
 </h3>
+
+<!--Introduction to the site-->
+<h4 style="color:#000000">About:</h4>
+<ul>
+	<li><strong>This is a web.py framework managed by Python using psql as a back-end database.</strong></li>
+	<li><strong>The program, website, and database are geared toward being used by Stickney Observatory users as a means of taking inventory.</strong></li>
+	<li><strong>Web.py allows the user to search through the database without the need of querying psql on the command line.</strong></li>
+	<li><strong>The user has the ability to fill out forms, search through the database via item names, and view and download csv files of all items in the database.</strong></li>
+</ul>
+
+<p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+<!--User's choice to go to form, or search-->
 <p><strong>Here you will be able to choose where you would like to go:</strong></p>
 <form method="post" action="/static/form.html">
-	<b style="color:#000000">If you would like to go to the form, click here</b>:
+	<b style="color:#000000">If you would like to go to the form, click here:</b>
 	<input type="submit" value="Form">
 </form>
 <form method="post" action="/static/so_search.html">
-	<b style="color:#000000">If you would like to search, click here</b>:
+	<b style="color:#000000">If you would like to search, click here:</b>
 	<input type="submit" value="Search">
 </form>
 </body>

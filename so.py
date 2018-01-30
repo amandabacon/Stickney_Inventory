@@ -9,6 +9,7 @@ import web
 import hashlib
 import csv
 import psycopg2
+import requests
 
 render = web.template.render('templates/')
 
@@ -28,62 +29,62 @@ app = web.application(urls, globals(), True)
 store = web.session.DiskStore('sessions')
 sessions = web.session.Session(app, store, initializer = {'login': 0, 'privilege': 0})
 
-def logged():
-	if session.login == 1:
-		return True
-	else:
-		return False
+#def logged():
+#	if session.login == 1:
+#		return True
+#	else:
+#		return False
 
-def create_render(privilege):
-	if logged():
-		if privilege == 0:
-			render = web.template.render('templates/reader')
-		elif privilege == 1:
-			render = web.template.render('templates/user')
-		elif privilege == 2:
-			render = web.template.render('templates/admin')
-		else:
-			render = web.template.render('templates/communs')
-	else:
-		render = web.template.render('templates/communs')
-	return render
+#def create_render(privilege):
+#	if logged():
+#		if privilege == 0:
+#			render = web.template.render('templates/reader')
+#		elif privilege == 1:
+#			render = web.template.render('templates/user')
+#		elif privilege == 2:
+#			render = web.template.render('templates/admin')
+#		else:
+#			render = web.template.render('templates/communs')
+#	else:
+#		render = web.template.render('templates/communs')
+#	return render
 
-class login:
-	def GET(self):
-		if logged():
-			render = create_render(session.get('privilege'))
-			return '%s' % render.login_double()
-		else:
-			render = create_render(session.get('privilege'))
-			return '%s' % render.login()
+#class login:
+#	def GET(self):
+#		if logged():
+#			render = create_render(session.get('privilege'))
+#			return '%s' % render.login_double()
+#		else:
+#			render = create_render(session.get('privilege'))
+#			return '%s' % render.login()
 
-	def POST(self):
-		db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
-		user_name, password = web.input().user_name, web.input().password
-		ident = db.select('user_table', where = "user_name=$user_name='{0}'".format(ident))
-		try:
-			if hashlib.shal("sAlT754-"+password).hexdigest() == ident['pass']:
-				session.login = 1
-				session.privilege = ident['privilege']
-				render = create_render(session.get('privilege'))
-				return render.login_ok()
-			else:
-				session.login = 0
-				session.privilege = 0
-				render = create_render(session.get('privilege'))
-				return render.login_error()
-		except:
-			session.login = 0
-			session.privilege = 0
-			render = create_render(session.get('privilege'))
-			return render.login_error()
+#	def POST(self):
+#		db = web.database(dbn = 'postgres', user = 'amandabacon', db = 'stickney_db')
+#		user_name, password = web.input().user_name, web.input().password
+#		ident = db.select('user_table', where = "user_name=$user_name='{0}'".format(ident))
+#		try:
+#			if hashlib.shal("sAlT754-"+password).hexdigest() == ident['pass']:
+#				session.login = 1
+#				session.privilege = ident['privilege']
+#				render = create_render(session.get('privilege'))
+#				return render.login_ok()
+#			else:
+#				session.login = 0
+#				session.privilege = 0
+#				render = create_render(session.get('privilege'))
+#				return render.login_error()
+#		except:
+#			session.login = 0
+#			session.privilege = 0
+#			render = create_render(session.get('privilege'))
+#			return render.login_error()
 
-class logout:
-	def GET(self):
-		session.login = 0
-		session.kill()
-		render = create_render(session.get('privilege'))
-		return render.logout()
+#class logout:
+#	def GET(self):
+#		session.login = 0
+#		session.kill()
+#		render = create_render(session.get('privilege'))
+#		return render.logout()
 
 # /objectinfo/(.*) -- click name for info
 

@@ -2,21 +2,29 @@
 <head>
 	<title>Stickney Observatory Inventory Search</title>
 </head>
-<body background="http://wallportal.com/uploads/posts/white-wallpaper-images/white_wallpaper_images_012.jpg">
+<body background="http://freedesignfile.com/upload/2015/10/Round-lines-with-dot-psd-background.jpg">
 <h3>
-	<center style="color:#000000">Welcome to the Stickney Observatory Database!</center>
+	<center style="color:#000000">Welcome to the Stickney Observatory Search Form!</center>
 </h3>
-<p><strong>Here you will be able to find all logged items in Stickney Observatory by a name search</strong></p>
+
+<!--Info-->
+<p><strong>Here you will be able to search through the Stickney Observatory database.</strong></p>
+
+<!--Name search-->
 <form method="post" action="/object_by_name">
-	<b style="color:#000000">Enter the item name, and we will list it</b>: <input name="item_name" type="text">
+	<b style="color:#000000">Enter the item name, and we will list the result(s):</b> <input name="item_name" type="text">
 	<input type="submit" value="Search">
 </form>
+
+<!--List all items in db-->
 <form method="post" action="/all_items">
-	<b style="color:#000000">Click here to see all items</b>:
+	<b style="color:#000000">Click here to list all items in the database:</b>
 	<input type="submit" value="All">
 </form>
+
+<!--Redirection-->
 <form method="post" action="/static/home.html">
-	<b style="color:#000000">If you would like to go back to the home page, click here</b>:
+	<b style="color:#000000">If you would like to go back to the home page, click here:</b>
 	<input type="submit" value="Home">
 </form>
 </body>
