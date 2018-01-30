@@ -1,12 +1,12 @@
 # Final for DBMS Fall 2017
 
-This is a web.py spin off using python and psql.
+This is a web.py framework managed by Python using psql as a back-end database.
 
-This program, website, and database is geared toward being used by Stickney Observatory as a means of taking inventory and keeping a log of all of the items inputted into the database.
+The program, website, and database are geared toward being used by Stickney Observatory users as a means of taking inventory.
 
-The user can search through the database through the use of a web.py HTML page to find information on logged items.
+Web.py allows the user to search through the database without the need of querying psql on the command line.
 
-The user can also fill out a form in order to log some items into the psql database. 
+The user has the ability to fill out forms, seach through the database via item names, and view and download csv files of all items in the database. 
 
 # Installation
 
@@ -18,12 +18,18 @@ This model was run and tested on the Linux Ubuntu operating system.
 
 Would like to:
 
--be able to edit on HTML page, and these edits appear in db
+-be able to edit on HTML page, and these edits update the db
 
--login using Bton credentials
+-login using Bton credentials to Bennington.works or observatory.bennington.edu
 
 -liken empty strings to null values to return an error to user
 
 -prevent repetition in database
+
+-need error page for item not being inserted in db
+
+-empty display = no info available (in all and searches)
+
+-count of all items in db--in so.py
 
 -download csv (HTML button)
