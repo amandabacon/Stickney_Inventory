@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Stickney Observatory Inventory Form</title>
+<script src="/static/javascript.js"></script>
 </head>
 <body background="http://freedesignfile.com/upload/2015/10/Round-lines-with-dot-psd-background.jpg">
 <h3>
@@ -11,13 +12,13 @@
 <p><strong>Fill out the form below, entering information on the item in order to insert it into the database.</strong></p>
 
 <!--Form insertion-->
-<ul style="list-style: none; line-height: 3;"><form method="post" action="/formsub">
-	<li><b style="color:#000000">Enter item name (not null)*:</b> <input name="item_name" type="text"></li>
-	<li><b style="color:#000000">Enter model number (not null)*:</b> <input name="model" type="text"></li>
-	<li><b style="color:#000000">Enter serial number (not null)*:</b> <input name="serial_num" type="text"></li>
+<ul style="list-style: none; line-height: 3;"><form method="post" action="/formsub" id="search_form">
+	<li><b style="color:#000000">Enter item name (not null)*:</b> <input name="item_name" type="text" id="item_name"></li>
+	<li><b style="color:#000000">Enter model number (not null)*:</b> <input name="model" type="text" id="model"></li>
+	<li><b style="color:#000000">Enter serial number (not null)*:</b> <input name="serial_num" type="text" id="serial_num"></li>
 	<li><b style="color:#000000">Enter your name:</b> <input name="logger_name" type="text"></li>
 	<li><b style="color:#000000">Enter any miscellaneous details:</b> <input name="description" type="text"></li>
-	<input type="submit" value="Submit">
+	<input type="submit" value="Submit" onClick="return empty()">
 </form></ul>
 
 <!--Back to home button-->
