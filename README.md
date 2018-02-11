@@ -22,10 +22,8 @@ Would like to:
 
 -login using Bton credentials to Bennington.works or observatory.bennington.edu
 
--prevent repetition in database
+-prevent repetition in database--on conflict do update how in web.py?
 
--empty display = no info available (in all and searches)
-
--count of all items in db--in so.py
+-$if id.logger_name is "": not working
 
 -download csv (HTML button)
