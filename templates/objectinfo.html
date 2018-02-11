@@ -9,6 +9,7 @@ $def with (info)
 <!--Formatting errors, table-->
 $for id in info:
 	<p><strong style="color:#000000">Here is the information on (id, name): <em style="color:#eb0505"><strong>$id.id, $id.item_name</strong></em></strong></p>
+<!--This should not happen-->
 	$if id.id == 0:
 		<strong style="color:#ff0000">There is no id information available for this item.</strong>
 	$if id.item_name is None:
@@ -19,9 +20,10 @@ $for id in info:
 		<strong style="color:#ff0000">There is no serial number available for this item.</strong>
 	$if id.date is None:
 		<strong style="color:#ff0000">There is no logged date for this item.</strong>
-	$if id.logger_name is None:
+<!--To here-->
+	$if id.logger_name is "":
 		<strong style="color:#ff0000">Logger did not provide a name.</strong>
-	$if id.description is None:
+	$if id.description is "":
 		<strong style="color:#ff0000">There is no other information available for this item.</strong>
 
 <div id = "edit" contenteditable = "true" style="display:inline-block">
