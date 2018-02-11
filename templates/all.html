@@ -1,6 +1,8 @@
 $def with (all_items)
 <html>
-<head><title>All Items</title></head>
+<head><title>All Items</title>
+<script src="/static/javascript.js"></script>
+</head>
 <body background="http://freedesignfile.com/upload/2015/10/Round-lines-with-dot-psd-background.jpg">
 <h3>
 	<center style="color:#000000">Item Information</center>
@@ -57,6 +59,8 @@ $for all in all_items:
 <br>
 
 <!-- \copy sobset TO '~/final/sobset.csv' DELIMITER ',' CSV HEADER;-->
+
+<button onclick="exportTableToCSV('sobset_csv.csv')">Export HTML Table to CSV</button>
 
 <a style="color:#eb0505" href="/home/amandabacon/final/sobset_csv.csv" download><strong>Download CSV</strong></a>
 

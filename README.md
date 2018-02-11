@@ -22,11 +22,7 @@ Would like to:
 
 -login using Bton credentials to Bennington.works or observatory.bennington.edu
 
--liken empty strings to null values to return an error to user
-
 -prevent repetition in database
-
--need error page for item not being inserted in db
 
 -empty display = no info available (in all and searches)
 
