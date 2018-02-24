@@ -35,7 +35,7 @@ $for all in all_items:
 	$if all.description is None:
 		<strong style="color:#eb0505">There is no other information available for this item.</strong>
 
-	<table border="1" bordercolor="#000000" cellpadding="3">
+	<table border="1" bordercolor="#000000" cellpadding="3" id="table">
 		<tr>
 			<th>id:</th>
 			<th>item name:</th>
@@ -60,7 +60,17 @@ $for all in all_items:
 
 <!-- \copy sobset TO '~/final/sobset.csv' DELIMITER ',' CSV HEADER;-->
 
+<form action="~/var/www/html/download.php" method="post">
+	Download CSV
+	<input type="submit" value="Download">
+</form>
+
 <a style="color:#eb0505" href="/home/amandabacon/final/sobset_csv.csv" download><strong>Download CSV</strong></a>
+
+<form action="/download.php" method="post" class="test">
+	Download
+	<input type="submit" value="Download" onClick="return exportTableToCSV()">
+</form>
 
 <br>
 

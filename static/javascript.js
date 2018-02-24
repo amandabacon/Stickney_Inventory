@@ -19,3 +19,33 @@ function empty() {
 	};
 
 }
+
+function exportTableToCSV($table, sobset_csv) {
+	var $rows = $table.find('tr:has(td)'),
+		tmpColDelim = String.fromCharCode(11),
+		tmpRowDelim = String.fromCharCode(0),
+		colDelim = '","',
+		rowDelim = '"\r\n"',
+		csv = '"' + $rows.map(function (i, row) {
+			var $row = $(row),
+				$cols = $row.find('td');
+
+			return $cols.map(function (j, col) {
+				var $col = $(col),
+					text = $col.text();
+
+				return text.replace('"', '""');
+			}).get().join(tmpColDelim);
+		}).get().join(tmpRowDelim)
+			.split(tmpRowDelim).join(rowDelim)
+			.split(tmpColDelim).join(colDelim) + '"',
+		csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+	$(this)
+		.attr({
+		'download':sobset_csv,
+			'href':csvData,
+			'target':'_blank'
+		});
+	}
+
+$('.test').click(function(){exportTableToCSV.apply(this, [$('#table'), 'sobset_csv.csv']);});

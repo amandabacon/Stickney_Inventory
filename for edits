@@ -1,0 +1,13 @@
+function saveEdits() {
+<!--get editable element-->
+var editElem = document.getElementById("edit");
+
+<!--get edited element content-->
+var userVersion = editElem.innerHTML;
+
+<!--save content to local storage-->
+localStorage.userEdits = userVersion;
+
+<!--write confirmation-->
+document.getElementById("update").innerHTML="Edits saved!";
+}
