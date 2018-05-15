@@ -10,7 +10,6 @@ import hashlib
 import csv
 import psycopg2
 import requests
-from lxml import html
 
 render = web.template.render('templates/')
 
@@ -27,28 +26,8 @@ urls = (
 )
 
 app = web.application(urls, globals(), True)
-#store = web.session.DiskStore('sessions')
-#sessions = web.session.Session(app, store, initializer = {'login': 0, 'privilege': 0})
-
-USERNAME = "<USER NAME>"
-PASSWORD = "<PASSWORD>"
-LOGIN_URL = "https://sso.bennington.edu/?SAMLRequest=fZHNboMwEIRfBfkejCElYAESalQpUlpVSdtDL5UxS2MJ29Rr%2BvP2JaBK6aG9zu43o50tUOh%2B4PXoT%2BYAbyOgDz51b5DPg5KMznArUCE3QgNyL%2Fmxvt3zOIz44Ky30vbkAvmfEIjgvLKGBLttSV6g2SSia1KZyc266xrZ5mnMpIiTjOWsg3RzJbMkkjIlwRM4nMiSTEYTjjjCzqAXxk9SxLJVFK9Y%2FsDWfJ3wJH8mQf2Tdm0NjhrcEdy7kvB42Jfk5P2AnNIGjFHm1VsTDnYYe%2FUBTSitps6OHhw9H0VxoHLxIFVxVvic76oFmfYLeikXS613UwG77b3tlfwKbqzTwv%2FdDwvZrKh21c2rHLRQfd22DhAJrZaI38%2BqvgE%3D&RelayState=https%3A%2F%2Fbennington.populiweb.com%2Finternal"
-URL = "https://sso.bennington.edu/?SAMLRequest=fZHNboMwEIRfBfkejCElYAESalQpUlpVSdtDL5UxS2MJ29Rr%2BvP2JaBK6aG9zu43o50tUOh%2B4PXoT%2BYAbyOgDz51b5DPg5KMznArUCE3QgNyL%2Fmxvt3zOIz44Ky30vbkAvmfEIjgvLKGBLttSV6g2SSia1KZyc266xrZ5mnMpIiTjOWsg3RzJbMkkjIlwRM4nMiSTEYTjjjCzqAXxk9SxLJVFK9Y%2FsDWfJ3wJH8mQf2Tdm0NjhrcEdy7kvB42Jfk5P2AnNIGjFHm1VsTDnYYe%2FUBTSitps6OHhw9H0VxoHLxIFVxVvic76oFmfYLeikXS613UwG77b3tlfwKbqzTwv%2FdDwvZrKh21c2rHLRQfd22DhAJrZaI38%2BqvgE%3D&RelayState=https%3A%2F%2Fbennington.populiweb.com%2Finternal"
-
-def login():
-	session_requests = requests.session()
-
-	result = session_requests.get(LOGIN_URL)
-	tree = html.fromstring(result.text)
-
-	payload = {
-		"netid": "<USER NAME>",
-		"netidpword": "<PASSWORD>"
-	}
-
-	result = session_requests.post(LOGIN_URL, data = payload, headers = dict(referer = LOGIN_URL))
-
-	result = session_requests.get(URL, headers = dict(referer = URL))
+store = web.session.DiskStore('sessions')
+sessions = web.session.Session(app, store, initializer = {'login': 0, 'privilege': 0})
 
 #def logged():
 #	if session.login == 1:
@@ -205,7 +184,6 @@ class form:
 if __name__ == "__main__":
 	app.run()
 	sobset_csv()
-	login()
 
 # sudo -u postgres createdb -O amandabacon stickney_db
 # stickney_db=# \copy sobset TO '~/final/sobset.csv' DELIMITER ',' CSV HEADER;
