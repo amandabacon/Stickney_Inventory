@@ -11,3 +11,12 @@ localStorage.userEdits = userVersion;
 <!--write confirmation-->
 document.getElementById("update").innerHTML="Edits saved!";
 }
+
+127.0.0.1:40496 - - [25/Feb/2018 15:19:54] "HTTP/1.1 POST /formsub" - 200 OK
+Error in inserting into table: value too long for type character varying(50)
+
+Error in inserting into table: duplicate key value violates unique constraint "sobset_pkey"
+DETAIL:  Key (id)=(47) already exists.
+
+
+make page for this
