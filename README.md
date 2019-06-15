@@ -14,6 +14,12 @@ In order to use this application, you must first download/install postgresql. In
 
 This model was run and tested on the Linux Ubuntu operating system.
 
+# Static Pages
+
+http://0.0.0.0:8080/static/so_search.html
+http://0.0.0.0:8080/static/form.html
+http://0.0.0.0:8080/static/login.html
+
 # Next Steps:
 
 Would like to:
