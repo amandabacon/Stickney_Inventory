@@ -8,6 +8,8 @@ Web.py allows the user to search through the database without the need of queryi
 
 The user has the ability to fill out forms, seach through the database via item names, and view and download csv files of all items in the database. 
 
+This site can only be accessed on the Bennington College campus. 
+
 # Installation
 
 In order to use this application, you must first download/install postgresql. Information can be found here: https://www.postgresql.org/docs/9.6/static/tutorial-install.html
